@@ -51,10 +51,10 @@ set(gca,'ytick',[1,2,3]);
 xlabel('j')
 ylabel('i')
 title('Reshaped Null Space Model V.,8');
-bookfonts
+%%bookfonts
 
 disp('Displaying image of null space model V.,8 (fig. 1)')
-print -deps2 c3fv8null.eps
+%%print -deps2 c3fv8null.eps
 
 % Display image of null space model V.,9
 figure(2)
@@ -68,10 +68,10 @@ set(gca,'ytick',[1,2,3]);
 xlabel('j')
 ylabel('i')
 title('Reshaped Null Space Model V.,9');
-bookfonts
+%%bookfonts
 
 disp('Displaying image of null space model V.,9 (fig. 2)')
-print -deps2 c3fv9null.eps
+%%print -deps2 c3fv9null.eps
 
 % Display data space null vector
 disp('Data null space vector')
@@ -93,10 +93,10 @@ set(gca,'ytick',[1,2,3,4,5,6,7,8,9]);
 xlabel('j')
 ylabel('i')
 title('Model Resolution Matrix')
-bookfonts
+%%bookfonts
 
 disp('Displaying full model resolution matrix (fig. 3)')
-print -deps2 c3fR.eps
+%%print -deps2 c3fR.eps
 
 Rmdiag=reshape(diag(Rm),3,3)'
 % Display reshaped diagonal elements of the model resolution matrix and colorbar
@@ -111,10 +111,10 @@ set(gca,'ytick',[1,2,3]);
 xlabel('j')
 ylabel('i')
 title('Reshaped Model Resolution Matrix Diagonal Elements')
-bookfonts
+%%bookfonts
 
 disp('Displaying diagonal elements of model resolution matrix (fig. 4)')
-print -deps2 c3fRdiag.eps
+%%print -deps2 c3fRdiag.eps
 
 % Spike resolution test
 % Construct spike model
@@ -146,10 +146,10 @@ set(gca,'ytick',[1,2,3]);
 xlabel('j')
 ylabel('i')
 title('Spike Test Model')
-bookfonts
+%%bookfonts
 
 disp('Displaying spike test model (fig. 5)')
-print -deps2 c3fspike.eps
+%%print -deps2 c3fspike.eps
 
 % Display reshaped recovered spike model with colorbar
 figure(6)
@@ -163,7 +163,7 @@ set(gca,'ytick',[1,2,3]);
 xlabel('j')
 ylabel('i')
 title('Recovered Model from Spike Test Model Data')
-bookfonts
+%%bookfonts
 
 disp('Displaying recovered model from noise-free spike test data (fig. 6)')
-print -deps2 c3fspike_recov.eps
+%%print -deps2 c3fspike_recov.eps
