@@ -41,13 +41,13 @@ clf
 loglog(rho,eta,'k-');
 xlabel('Residual Norm ||Gm - d||_2')
 ylabel('Solution Norm ||m||_2')
-bookfonts
+%%bookfonts
 axis tight
 hold on
 H=loglog(rho_corner,eta_corner,'ko');
 set(H,'markersize',16)
 hold off
-print -deps2 c4flcurve0
+%%print -deps2 c4flcurve0
 
 disp('Displaying the L-curve (fig. 1)')
 
@@ -57,9 +57,9 @@ clf
 plotconst(m_tikh,-pi/2,pi/2);
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
+%%bookfonts
 ylim([-.2 0.5])
-print -deps2 c4fmtik.eps
+%%print -deps2 c4fmtik.eps
 
 disp('Displaying the L-curve predicted model (fig. 2)')
 
@@ -85,9 +85,9 @@ clf
 plotconst(m_disc,-pi/2,pi/2);
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
+%%bookfonts
 ylim([-.2 0.5])
-print -deps2 c4fmdisc.eps
+%%print -deps2 c4fmdisc.eps
 
 disp('Displaying the discrepancy principle predicted model (fig. 3)')
 
@@ -102,9 +102,9 @@ x_ind=1:length(s);
 semilogy(x_ind,s,'k-',x_ind,abs(utd),'k.',x_ind,abs(utd_norm),'ko')
 legend('s_i','|u_i^Td|','|u_i^Td|/s_i','Location','SouthWest');
 xlabel('i')
-bookfonts
+%%bookfonts
 axis tight
-print -deps2 c4fpicard.eps
+%%print -deps2 c4fpicard.eps
 
 disp('Displaying the Picard plot (fig. 4)')
 
@@ -119,7 +119,7 @@ plotconst(rdspike,-pi/2,pi/2);
 ylim([-.2 0.5])
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
+%%bookfonts
 
 disp(['Displaying the predicted model from the noise free data using the'...
     ' L-curve criteria (fig. 5)'])
@@ -134,8 +134,8 @@ plotconst(rdspike,-pi/2,pi/2);
 ylim([-.2 0.5])
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
-print -deps2 c4fmdisc_noise_free.eps
+%%bookfonts
+%%print -deps2 c4fmdisc_noise_free.eps
 
 disp(['Displaying the predicted model from the noise free data using the'...
     ' discrepancy principle (fig. 6)'])
@@ -156,8 +156,8 @@ colormap('gray')
 colorbar
 xlabel('j');
 ylabel('i')
-bookfonts
-print -deps2 c4shaw_res.eps
+%%bookfonts
+%%print -deps2 c4shaw_res.eps
 
 disp(['Displaying the resolution matrix for the discrepancy principle'...
     ' (fig. 7)'])
@@ -178,8 +178,8 @@ legend(H1,'m_{true}','m_{disc}','95%');
 H4=plotconstc(m_disc-1.96*sqrt(diag(covm_disc)),-pi/2,pi/2,'k:');
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
-print -deps2 c4fbias.eps
+%%bookfonts
+%%print -deps2 c4fbias.eps
 
 disp(['Displaying the discrepancy principle predicted model with error'...
     ' bars (fig. 8)'])
@@ -215,8 +215,8 @@ clf
 plotconst(smoothmod,-pi/2,pi/2);
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
-print -deps c4fsmoothmod.eps
+%%bookfonts
+%%print -deps c4fsmoothmod.eps
 
 disp(['Displaying a well recoverable smooth model (fig. 9)'])
 
@@ -226,8 +226,8 @@ clf
 plotconst(malphahat,-pi/2,pi/2);
 xlabel('\theta');
 ylabel('Intensity');
-bookfonts
-print -deps c4fsmoothmodre.eps
+%%bookfonts
+%%print -deps c4fsmoothmodre.eps
 
 disp(['Displaying the recovered model from the noisy data associated'...
     ' with the previous plot (fig 10)'])
