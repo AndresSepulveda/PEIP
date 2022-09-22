@@ -89,14 +89,14 @@ d=dtrue+0.01*randn(size(dtrue));
 % Plot the true model.
 figure(1)
 clf
-bookfonts
+%bookfonts
 imagesc(mtruem,[-0.2 1.2]);
 colormap(gray);
 H=colorbar;
 set(H,'FontSize',18);
 
 disp('Displaying true model (fig. 1)')
-print -deps mtomo.eps
+%print -deps mtomo.eps
 
 % Next, compute the generalized inverse solution, using 87 singular values.
 
@@ -121,12 +121,12 @@ disp(['cputime for gen inv solution was ', num2str(cputime-t)]);
 figure(2)
 clf
 imagesc(reshape(mg,16,16),[-0.2 1.2]);
-bookfonts
+%bookfonts
 colormap(gray);
 H=colorbar;
 set(H,'FontSize',18);
 disp('Displaying truncated svd solution with 87 singular values (fig. 2)')
-print -deps mg.eps
+%print -deps mg.eps
 
 % Next,compute the Kaczmarz solution, 94 iterations.
 
@@ -143,12 +143,12 @@ disp(['cputime for Kaczmarz''s algorithm was ', num2str(cputime-t)]);
 figure(3)
 clf
 imagesc(reshape(mkac,16,16),[-0.2 1.2]);
-bookfonts
+%bookfonts
 colormap(gray);
 H=colorbar;
 set(H,'FontSize',18);
 disp('Displaying Kaczmarz algorithm solution (fig. 3)')
-print -deps mkac.eps
+%print -deps mkac.eps
 
 % Display relative errors for different solution methods
 disp(' ')
