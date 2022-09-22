@@ -33,7 +33,7 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
-bookfonts
+%bookfonts
 
 disp('Displaying raw image (fig. 1)')
 
@@ -47,8 +47,8 @@ set(H,'XTick',[]);
 set(H,'YTick',[]);
 
 disp('Displaying blurred image with noise (fig. 2)')
-bookfonts
-print -deps c6fblur.eps
+%bookfonts
+%print -deps c6fblur.eps
 
 % Plot CGLS solution with 30 iterations 
 figure(3)
@@ -58,10 +58,10 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
-bookfonts
+%bookfonts
 
 disp('Displaying CGLS solution after 30 iterations (fig. 3)')
-print -deps c6fblur30.eps
+%print -deps c6fblur30.eps
 
 % Plot CGLS solution with 100 iterations 
 figure(4)
@@ -71,15 +71,15 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
-bookfonts
+%bookfonts
 
 disp('Displaying CGLS solution after 100 iterations (fig. 4)')
-print -deps c6fblur100.eps
+%print -deps c6fblur100.eps
 
 % Plot of model norm vs. residual norm for CGLS solution
 figure(5)
 clf
-bookfonts
+%bookfonts
 loglog(rho(1:200),eta(1:200),'ko');
 xlabel('Residual Norm || Gm-d ||_2');
 ylabel('Solution Norm || m ||_2');
@@ -123,11 +123,11 @@ hold on
 loglog(explicitrho,expliciteta,'kx-');
 xlabel('Residual Norm || Gm-d ||_2');
 ylabel('Solution Norm || m ||_2');
-bookfonts
+%bookfonts
 legend('CGLS, no regularization','CGLS, explicit regularization');
 
 disp('Displaying L-curves for CGLS deblurring (fig. 6)')
-print -deps c6fblurlcurve.eps 
+%print -deps c6fblurlcurve.eps 
 
 %
 % The corner of the L-curve for the explicitly reguarlized solution is
@@ -142,8 +142,8 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
-bookfonts
+%bookfonts
 
 disp(['Displaying explicitly regularized CGLS solution for alpha ='...
     '7e-4 (fig. 7)'])
-print -deps c6fcglsexpl.eps
+%print -deps c6fcglsexpl.eps
