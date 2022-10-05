@@ -111,6 +111,17 @@ UP=U(:,1:87);
 VP=V(:,1:87);
 SP=S(1:87,1:87);
 
+
+%
+% ¿Por qué 87?
+%
+% 1) Usar rank para obtener el numero de autovalores
+% 2) ¿Cual es el rank maximo?
+% 3) Extraer los autovalores de S
+% 4) Graficar los autovalores
+%
+
+
 % Get solution using 87 singular values
 mg=VP*inv(SP)*UP'*d;
 
