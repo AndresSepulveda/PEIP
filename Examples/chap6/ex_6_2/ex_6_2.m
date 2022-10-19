@@ -107,8 +107,8 @@ explicitsols=zeros(40000,length(alphas));
 
 % Use CGLS to get solutions at alpha values listed in vector above
 for i=1:length(alphas)
-  Gtemp=[G; alphas(i)*speye(n,n)];
-  dtemp=[dn; zeros(n,1)];
+  Gtemp=[G; alphas(i)*speye(n,n)];      % Eq. 6.94 p 166 Aster
+  dtemp=[dn; zeros(n,1)];               %
   [X,rho2,eta2]=cgls(Gtemp,dtemp,200);
   explicitrho(i)=norm(G*X(:,200)-dn);
   expliciteta(i)=norm(X(:,200));
