@@ -1,4 +1,4 @@
-% Example 3.1
+% Example 3.2
 % from Parameter Estimation and Inverse Problems, 3rd edition, 2018
 % by R. Aster, B. Borchers, C. Thurber
 
