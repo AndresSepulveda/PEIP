@@ -58,7 +58,8 @@ H=colorbar;
 set(H,'FontSize',18);
 xlabel('j')
 ylabel('i')
-bookfonts
+title('Matriz G')
+%bookfonts
 
 disp('Displaying image of G matrix (fig. 1)')
 
@@ -94,7 +95,8 @@ plot(t(1:N-1),g,'k')
 axis tight
 xlabel('Time (s)')
 ylabel('V')
-bookfonts
+title('')
+%bookfonts
 
 disp('Instrument response to unit ground acceleration impulse (fig. 2)')
 print -deps2 c3fimp_resp.eps
@@ -106,7 +108,8 @@ semilogy(diag(S),'ko')
 axis tight
 xlabel('i')
 ylabel('s_i')
-bookfonts
+title('Valores Singulares')
+%bookfonts
 
 disp('Displaying semilog plot of singular values (fig. 3)')
 
@@ -119,7 +122,8 @@ ylim([0 1])
 axis tight
 xlabel('Time (s)')
 ylabel('Acceleration (m/s^2)');
-bookfonts
+title('Modelo Verdadero')
+%bookfonts
 
 disp('Displaying true model (fig. 4)')
 print -deps2 c3fm_true.eps
@@ -130,7 +134,8 @@ clf
 plot(t(1:N-1),d,'k')
 xlabel('Time (s)')
 ylabel('V')
-bookfonts
+title('Datos Predichos - Sin Ruido')
+%bookfonts
 axis tight
 
 disp('Displaying predicted data from true model (without noise) (fig. 5)')
@@ -142,7 +147,8 @@ plot(t(1:N-1),dn,'k')
 xlim([-5 100])
 xlabel('Time (s)')
 ylabel('V');
-bookfonts
+title('Datos Predichos + Ruido')
+%bookfonts
 axis tight
 
 disp(['Displaying predicted data from true model plus independent noise'...
@@ -157,7 +163,8 @@ xlim([-5 100])
 ylim([0 1])
 xlabel('Time (s)')
 ylabel('Acceleration (m/s^2)');
-bookfonts
+title('Solucion Datos sin Ruido')
+%bookfonts
 
 disp(['Displaying generalized inverse solution for noise-free data'...
     ' (210 singular values) (fig. 7)'])
@@ -169,9 +176,9 @@ clf
 plot(t(1:N-1),mn,'k')
 xlabel('Time (s)')
 ylabel('Acceleration (m/s^2)');
-bookfonts
+%bookfonts
 axis tight
-
+title('Solucion Datos con Ruido')
 disp(['Displaying generalized inverse solution for noisy data'...
     ' (210 singular values) (fig. 8)'])
 print -deps2 c3fpinv_solution_noise.eps
@@ -191,9 +198,9 @@ clf
 plot(t(1:N-1),m2,'k')
 xlabel('Time (s)')
 ylabel('Acceleration (m/s^2)');
-bookfonts
+%bookfonts
 axis tight
-
+title('Solución Datos con Ruido - 26 vs')
 disp(['Displaying generalized inverse solution for noisy data'...
     ' (26 singular values) (fig. 9)'])
 print -deps2 c3fpinv_solution_noise_26.eps
@@ -209,10 +216,10 @@ colormap(gray)
 imagesc(Rm,[min(min(Rm)),max(max(Rm))])
 xlabel('j')
 ylabel('i')
-bookfonts
+%bookfonts
 H=colorbar;
 set(H,'FontSize',18);
-
+title('Matriz de Resolución - Solucion Truncada')
 disp(['Displaying image of resolution matrix for truncated SVD solution'...
     ' (26 singular values) (fig. 10)'])
 print -deps2 c3fR_solution_26.eps
@@ -224,8 +231,8 @@ plot(t(1:N-1), Rm(80,:),'k')
 axis tight
 xlabel('Time (s)')
 ylabel('Element Value')
-bookfonts
-
+%bookfonts
+title('Una columna de Matriz de Resolución - Solución Truncada')
 disp(['Displaying column of model resolution matrix for'...
     ' truncated SVD solution (fig. 11)'])
 print -deps2 c3fR_column_26.eps
@@ -239,8 +246,7 @@ m=zeros(N-1,1);
 ss=diag(S);
 
 figure(12)
-clf
-for i=1:p
+for i=1:26
   % adjust the predicted model to have p singular values
   m=m+(U(:,i)'*dn/ss(i))*V(:,i);
   % keep track of the residuals for each p
@@ -256,21 +262,42 @@ for i=1:p
   plot(mtrue,'r-.');
   hold off
   title(num2str(i));
-  bookfonts
+  %bookfonts
+  pause(0.1)
+end
+
+figure(13)
+for i=27:p
+  % adjust the predicted model to have p singular values
+  m=m+(U(:,i)'*dn/ss(i))*V(:,i);
+  % keep track of the residuals for each p
+  r(i)=norm(G*m-dn);
+  % keep track of the model norm for each p
+  mnorm(i)=norm(m);
+  % plot the newly fit model
+  plot(m)
+  xlabel('Time (s)')
+  ylabel('Acceleration (m/s^2)');
+  hold on
+  % plot the true model
+  plot(mtrue,'r-.');
+  hold off
+  title(num2str(i));
+  %bookfonts
   pause(0.1)
 end
 
 %Examine the trade-off curve (collected in the loop above)
-figure(13)
+figure(14)
 clf
 plot(r,mnorm)
 hold on
 plot(r(26),mnorm(26),'ro')
 hold off
-xlabel('Residual Norm ||Gm-d||_2')
-ylabel('Solution Norm ||m||_2')
-bookfonts
+xlabel('Norma Residual ||Gm-d||_2')
+ylabel('Norma de la Solucion ||m||_2')
+title('Curva L')
+%bookfonts
 text(r(26),mnorm(26),'   26 singular values in TSVD','fontsize',18);
 
 disp('Displaying TSVD trade-off curve (fig. 13)')
-
