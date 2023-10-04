@@ -29,7 +29,8 @@ semilogy(diag(S),'ko');
 ylim([10^-18 10^3])
 xlabel('i');
 ylabel('s_i');
-bookfonts
+title('Valores Singulares - 20 discretizaciones');
+%bookfonts
 
 disp('Displaying singular values of G (fig. 1)')
 print -deps2 c3fshawsing.eps
@@ -40,7 +41,8 @@ clf
 plotconst(V(:,18),-pi/2,pi/2);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Columna 18 de V');
+%bookfonts
 
 disp('Displaying column 18 of matrix V (fig. 2)')
 print -deps2 c3fV_18.eps
@@ -51,7 +53,8 @@ clf
 plotconst(V(:,1),-pi/2,pi/2);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Columna 1 de V');
+%bookfonts
 
 disp('Displaying column 1 of matrix V (fig. 3)')
 print -deps2 c3fV_1.eps
@@ -63,7 +66,8 @@ plotconst(spike,-pi/2,pi/2);
 axis([-2 2 -0.5 1.5]);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo de Impulso');
+%bookfonts
 
 disp('Displaying spike model (fig. 4)') 
 print -deps2 c3fshawspike
@@ -75,7 +79,8 @@ plotconst(dspike,-pi/2,pi/2);
 axis([-2 2 -0.25 .75]);
 xlabel('s (radians)')
 ylabel('Intensity')
-bookfonts
+title('Datos sin Ruido - Modelo de Impulso');
+%bookfonts
 
 disp('Displaying noise-free data for Shaw spike model (fig. 5)')
 print -deps2 c3fshawspike_data_nonoise.eps
@@ -102,7 +107,8 @@ plotconst(spikemod,-pi/2,pi/2);
 axis([-2 2 -0.5 1.5]);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo de Impulso Recuperado - Datos sin Ruido');
+%bookfonts
 
 disp('Displaying recovered spike model for noise-free data (fig. 6)');
 print -deps2 c3fpinv_spike_nonoise.eps
@@ -113,7 +119,8 @@ clf
 plotconst(spikemod18n,-pi/2,pi/2);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo de Impulso Recuperado - Datos con Ruido');
+%bookfonts
 
 disp('Displaying recovered spike model for noisy data p=18 (fig. 7)')
 print -deps2 c3fpinv_spike_noise_18.eps
@@ -137,7 +144,8 @@ plotconst(spikemod10,-pi/2,pi/2);
 axis([-2 2 -0.2 0.5]);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo de Impulso Recuperado - Datos sin Ruido p=10');
+%bookfonts
 
 disp('Displaying recovered spike model for noise-free data p=10 (fig. 8)')
 
@@ -148,7 +156,8 @@ plotconst(spikemod10n,-pi/2,pi/2);
 axis([-2 2 -0.2 0.5]);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo de Impulso Recuperado - Datos con Ruido p=10');
+%bookfonts
 
 disp('Displaying recovered spike model for noisy data p=10 (fig. 9)')
 print -deps2 c3fpinv_spike_noise_10.eps
@@ -183,7 +192,8 @@ clf
 semilogy(diag(S100),'ko');
 xlabel('i')
 ylabel('s_i')
-bookfonts
+%bookfonts
+title('Valores Singulares - 100 discretizaciones');
 ylim([1e-20 1e5])
 
 disp('Singular values of G for Shaw problem (n=100) (fig. 10)')
@@ -196,7 +206,8 @@ plotconst(spikeinv100n,-pi/2,pi/2);
 axis([-2 2 -0.25 .75]);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo recuperado - Ruido - n=100 - p = 10');
+%bookfonts
 
 disp(['Displaying recovered spike model for n=100, p=10 with noisy data'...
     ' (fig. 11)'])
@@ -217,7 +228,8 @@ clf
 plotconst(spikeinv100n18,-pi/2,pi/2);
 xlabel('\theta (radians)')
 ylabel('Intensity')
-bookfonts
+title('Modelo recuperado - Ruido - n=100 - p = 18');
+%bookfonts
 
 disp(['Displaying recovered spike model for n=100, p=18 with noisy data'...
     ' (fig. 12)'])
@@ -233,7 +245,8 @@ clf
 semilogy(diag(S6),'ko');
 xlabel('i')
 ylabel('s_i')
-bookfonts
+title('Valores Singulares - 6 discretizaciones');
+%bookfonts
 
 disp('Displaying singular values of G for n=6 (fig. 13)')
 print -deps2 c3fshawsing_6.eps
