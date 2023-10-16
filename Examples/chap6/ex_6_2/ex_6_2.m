@@ -33,6 +33,7 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
+title('Imagen Original')
 %bookfonts
 
 disp('Displaying raw image (fig. 1)')
@@ -45,6 +46,7 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
+title('Imagen Borrosa con Ruido')
 
 disp('Displaying blurred image with noise (fig. 2)')
 %bookfonts
@@ -58,6 +60,7 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
+title('Imagen recuperada - CGLS - 30 iters')
 %bookfonts
 
 disp('Displaying CGLS solution after 30 iterations (fig. 3)')
@@ -71,6 +74,7 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
+title('Imagen recuperada - CGLS - 100 iters')
 %bookfonts
 
 disp('Displaying CGLS solution after 100 iterations (fig. 4)')
@@ -83,6 +87,7 @@ clf
 loglog(rho(1:200),eta(1:200),'ko');
 xlabel('Residual Norm || Gm-d ||_2');
 ylabel('Solution Norm || m ||_2');
+title('Curva L - Solución CGLS')
 
 disp('Displaying model norm vs. residual norm for CGLS solution (fig. 5)')
 
@@ -107,8 +112,8 @@ explicitsols=zeros(40000,length(alphas));
 
 % Use CGLS to get solutions at alpha values listed in vector above
 for i=1:length(alphas)
-  Gtemp=[G; alphas(i)*speye(n,n)];      % Eq. 6.94 p 166 Aster
-  dtemp=[dn; zeros(n,1)];               %
+  Gtemp=[G; alphas(i)*speye(n,n)];
+  dtemp=[dn; zeros(n,1)];
   [X,rho2,eta2]=cgls(Gtemp,dtemp,200);
   explicitrho(i)=norm(G*X(:,200)-dn);
   expliciteta(i)=norm(X(:,200));
@@ -125,6 +130,7 @@ xlabel('Residual Norm || Gm-d ||_2');
 ylabel('Solution Norm || m ||_2');
 %bookfonts
 legend('CGLS, no regularization','CGLS, explicit regularization');
+title('Curvas L - CGLS con/sin Regularización')
 
 disp('Displaying L-curves for CGLS deblurring (fig. 6)')
 %print -deps c6fblurlcurve.eps 
@@ -142,6 +148,7 @@ colormap(gray);
 H=gca;
 set(H,'XTick',[]);
 set(H,'YTick',[]);
+title('Solución CGLS para alpha = 7e-4')
 %bookfonts
 
 disp(['Displaying explicitly regularized CGLS solution for alpha ='...
