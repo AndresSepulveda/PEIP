@@ -76,10 +76,10 @@ hold on
 errorbar(TM,H,SIGMA,'ko');
 xlabel('Time (hours)');
 ylabel('Head (m)');
-bookfonts
+%%bookfonts
 
 disp('Displaying the predicted head (fig. 1)')
-print -deps c9fslugplot.eps
+%%print -deps c9fslugplot.eps
 
 % generate the chi^2 values over a region
 [X,Y]=meshgrid(0.0001:0.0001:0.01,0.01:0.01:2.0);
@@ -107,10 +107,10 @@ ylim([0 2.2])
 xlim([0 6.2]*1e-3)
 xlabel('Storage Coefficient, S');
 ylabel('Trasmissivity, T (m^2/hr)');
-bookfonts
+%%bookfonts
 
 disp('Displaying the chi squared contours (fig. 2)')
-print -deps c9fslugcontour.eps
+%%print -deps c9fslugcontour.eps
 
 
 % create chi^2 contours nearer the fitted values
@@ -177,10 +177,10 @@ hold off
 
 xlabel('Storage Coefficient, S');
 ylabel('Transmissivity, T (m^2/hr)');
-bookfonts
+%%bookfonts
 ylim([0.54 0.64])
 xlim([1.83 2.26]*1e-3)
 
 disp(['Displaying contours of the chi squared value, and linearized error'...
     ' ellipse (fig. 3)'])
-print -deps c9fslugcontour2.eps
+%%print -deps c9fslugcontour2.eps
