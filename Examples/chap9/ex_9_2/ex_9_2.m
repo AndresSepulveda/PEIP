@@ -76,11 +76,11 @@ hold on;
 errorbar(x,y,sigma,'ko');
 xlabel('x');
 ylabel('y');
-bookfonts
+%%bookfonts
 ylim([0 1.2])
 
 disp('Displaying the fit model and the data (fig. 1)')
-print -deps2 c9fnlregfit.eps
+%%print -deps2 c9fnlregfit.eps
 
 % Plot the normalized residuals
 figure(2)
@@ -89,7 +89,7 @@ plot(x,fun(pbest),'ko');
 axis([0 7 -2 2]);
 xlabel('x');
 ylabel('Normalized Residual');
-bookfonts
+%%bookfonts
 
 disp('Displaying the normalized residuals (fig. 2)')
-print -deps2 c9fresiduals.eps
+%%print -deps2 c9fresiduals.eps
