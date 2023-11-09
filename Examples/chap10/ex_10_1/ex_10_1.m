@@ -70,7 +70,7 @@ figure(1)
 clf
 %plot the transpose to show (row, column) view of model
 imagesc(xni,zni,vi')
-bookfonts
+%%bookfonts
 colormap(gray)
 caxis([2600 3200])
 colorbar('FontSize',18);
@@ -81,7 +81,7 @@ hold on
 tstor=plotraypaths(PSCALE,NIT,CONV,XFAC,xn,zn,vtrue,sc,rc);
 hold off
 disp('Displaying the true model and ray paths (fig. 1)')
-print -deps2 c10fcrossraypaths.eps
+%%print -deps2 c10fcrossraypaths.eps
 
 
 %size of model space
@@ -215,7 +215,7 @@ for piteralpha=piteralphas
     colorbar('FontSize', 18);
     title(['\alpha = ',num2str(sqrt(alphasq(piter))),' iteration = '...
         ,num2str(iter),' rms residual = ',num2str(rmstry)]);
-    bookfonts
+    %%bookfonts
     drawnow;
 
     %  end of GN iteration
@@ -236,7 +236,7 @@ clf
 plot(1:iter,misfit)
 xlabel('Iteration')
 ylabel('Residual Norm ||G(m)-d||_2')
-bookfonts
+%%bookfonts
 
 disp('Displaying misfits by iteration (fig. 3)')
 
@@ -246,7 +246,7 @@ clf
 semilogy(1:iter,mnorm)
 xlabel('Iteration')
 ylabel('Solution Seminorm ||Lm||_2')
-bookfonts
+%%bookfonts
 
 disp('Displaying the model semi-norms by iteration (fig. 4)')
 
@@ -260,7 +260,7 @@ axis([.001 .1 .00001 .001])
 hold on
 % plot the discrepancy principle line
 loglog([NOISE*PSCALE,NOISE*PSCALE],[.00001,.001],'k--')
-bookfonts
+%%bookfonts
 % label each alpha
 for i=1:2:piter
   text(misfit(i,MAXITER),mnorm(i,MAXITER),['   ',num2str(sqrt(alphasq(i)))]);
@@ -268,7 +268,7 @@ end
 % label the discrepancy principle line
 text(NOISE*PSCALE,.000015,'   \delta=0.008')
 disp('Displaying the L-curve (fig. 5)')
-print -depsc2 c10fcrossL.eps
+%%print -depsc2 c10fcrossL.eps
 
 %Models compared to true model in norm difference
 figure(6)
@@ -276,7 +276,7 @@ clf
 semilogx(sqrt(alphasq),mrms(1:piter,MAXITER),'ok-')
 xlabel('\alpha')
 ylabel('||m_{true}-m||_2')
-bookfonts
+%%bookfonts
 hold on
 % mark the selected alpha
 semilogx(sqrt(alphasq(8)),mrms(8,MAXITER),'ok','MarkerSize',14)
@@ -289,7 +289,7 @@ end
 ylim([0 3.1e-4])
 hold off
 disp('Displaying alpha versus the model misfit (fig. 6)')
-print -deps2 c10fcrossmodmisfit.eps
+%%print -deps2 c10fcrossmodmisfit.eps
 
 %Suite of models figure (color on cover of book)
 figure(7)
@@ -307,7 +307,7 @@ for i=1:piter
   colormap('gray')
 end
 disp('Displaying the recovered model for each alpha (fig. 7)')
-print -deps2 c10fcrossmodelsuite.eps
+%%print -deps2 c10fcrossmodelsuite.eps
 
 %"best" model figure from discrepancy principle and ray paths
 figure(8)
@@ -315,7 +315,7 @@ clf
 vtmp1=vstore(8,:,:);
 vtmp(:,:)=vtmp1;
 imagesc(xni,zni,vtmp')
-bookfonts
+%%bookfonts
 caxis([2600 3200])
 axis square
 xlabel('m')
@@ -326,4 +326,4 @@ hold on
 tstor=plotraypaths(PSCALE,NIT,CONV,XFAC,xn,zn,vtmp,sc,rc);
 hold off
 disp('Displaying the discrepancy principle selected model (fig. 8)')
-print -deps2 c10fcrosstradeoff.eps
+%%print -deps2 c10fcrosstradeoff.eps
