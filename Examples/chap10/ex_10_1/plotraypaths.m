@@ -28,7 +28,7 @@
 function ttstor=plotraypaths(PSCALE,NIT,CONV,XFAC,xn,zn,v,sc,rc)
 
 %make sure the current plot has the correct fonts
-bookfonts
+%%bookfonts
 
 ttstor=zeros(PSCALE,PSCALE);
 
