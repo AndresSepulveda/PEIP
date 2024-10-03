@@ -42,7 +42,7 @@ m02=reshape(V(:,p+2),3,3)'
 % Display image of null space model V.,8
 figure(1)
 clf
-colormap('gray')
+colormap(french)
 imagesc(m01)
 caxis([-0.5 0.5]);
 set(colorbar,'Fontsize',18);
@@ -59,7 +59,7 @@ disp('Displaying image of null space model V.,8 (fig. 1)')
 % Display image of null space model V.,9
 figure(2)
 clf
-colormap('gray')
+colormap(french)
 imagesc(m02)
 caxis([-0.5 0.5]);
 set(colorbar,'Fontsize',18);
