@@ -9,7 +9,9 @@ randn('state',0);
 
 % Load the raw image in.
 %img=double(imread('image.png'));
+
 img=double(imread('ave_200x200.png'));
+img=img(:,:,1);
 
 % Build the G matrix.
 G=blur(200,3,15);
