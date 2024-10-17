@@ -21,11 +21,6 @@ global alpha;
 load ex_6_3_30000.mat
 
 % Setup G' and L';
-
-% Load in the problem data.  
-load ex_6_3_30000.mat
-
-% Setup G' and L';
 GT=G';
 LT=L';
 
