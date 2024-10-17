@@ -11,7 +11,7 @@ randn('state',0);
 %img=double(imread('image.png'));
 
 img=double(imread('ave_200x200.png'));
-img=img(:,:,1);
+img=img(:,:,1);   % Seleccionar una capa, ya que es una imagen a color
 
 % Build the G matrix.
 G=blur(200,3,15);
